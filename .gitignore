@@ -52,7 +52,6 @@ BenchmarkDotNet.Artifacts/
 project.lock.json
 project.fragment.lock.json
 artifacts/
-**/Properties/launchSettings.json
 
 # StyleCop
 StyleCopReport.xml
@@ -321,4 +320,4 @@ ASALocalRun/
 
 
 
-/final/tempkey.rsa
+*tempkey.rsa

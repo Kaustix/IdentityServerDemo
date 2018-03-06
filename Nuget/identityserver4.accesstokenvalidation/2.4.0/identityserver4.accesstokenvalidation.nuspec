@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>IdentityServer4.AccessTokenValidation</id>
+    <version>2.4.0</version>
+    <authors>Brock Allen,Dominick Baier</authors>
+    <owners>Brock Allen,Dominick Baier</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/IdentityServer/IdentityServer4.AccessTokenValidation/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/IdentityServer/IdentityServer4.AccessTokenValidation</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/IdentityServer/Artwork/master/Logos/IDserver_icon128.jpg</iconUrl>
+    <description>ASP.NET Core authentication handler to validate JWT and reference tokens from IdentityServer4</description>
+    <tags>OAuth2 OAuth 2.0 OpenID Connect Security Identity IdentityServer Bearer tokens</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.1">
+        <dependency id="IdentityModel.AspNetCore.OAuth2Introspection" version="3.1.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Authentication.JwtBearer" version="2.0.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Authorization" version="2.0.1" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETStandard2.0">
+        <dependency id="IdentityModel.AspNetCore.OAuth2Introspection" version="3.1.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Authentication.JwtBearer" version="2.0.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Authorization" version="2.0.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+</package>

@@ -18,8 +18,6 @@ namespace Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
-
             services.AddMvcCore()
                 .AddJsonFormatters();
         }

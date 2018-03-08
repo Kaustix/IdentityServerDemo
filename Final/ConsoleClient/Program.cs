@@ -40,7 +40,7 @@ namespace ConsoleClient
             var discoveryDocument = await DiscoveryClient.GetAsync("http://localhost:5000");
             if (discoveryDocument.IsError) throw new Exception(discoveryDocument.Error);
 
-            var tokenClient = new TokenClient(discoveryDocument.TokenEndpoint, "resource-owner-client", "password");
+            var tokenClient = new TokenClient(discoveryDocument.TokenEndpoint, "resource-owner-client", "secret");
             var tokenResponse = await tokenClient.RequestResourceOwnerPasswordAsync("KiernanL", "password", "test-api");
             if (tokenResponse.IsError) throw new Exception(tokenResponse.Error);
 

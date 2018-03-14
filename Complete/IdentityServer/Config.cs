@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
-using IdentityServer4;
+﻿using IdentityServer4;
 using IdentityServer4.Models;
 using IdentityServer4.Test;
+using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace IdentityServer
 {
@@ -9,7 +10,8 @@ namespace IdentityServer
     {
         public static IEnumerable<ApiResource> GetApiResources() => new List<ApiResource>
         {
-            new ApiResource("test-api", "Test Api")
+            new ApiResource("test-api", "Test Api"),
+            new ApiResource("test-api-2", "Test Api 2")
         };
 
         public static IEnumerable<Client> GetClients() => new List<Client>
@@ -42,6 +44,13 @@ namespace IdentityServer
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile
                 }
+            },
+            new Client
+            {
+                ClientId = "test-api",
+                AllowedGrantTypes = {"delegation"},
+                ClientSecrets = {new Secret("secret".Sha256())},
+                AllowedScopes = new List<string>{"test-api-2"}
             }
         };
 
@@ -51,7 +60,9 @@ namespace IdentityServer
             {
                 SubjectId = "1",
                 Username = "KiernanL",
-                Password = "password"
+                Password = "password",
+                IsActive = true,
+                Claims = new List<Claim>{new Claim("role", "admin")}
             }
         };
 

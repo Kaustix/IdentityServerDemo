@@ -12,8 +12,10 @@ namespace ConsoleClient
         {
             try
             {
-                CallApiClientCredentials().GetAwaiter().GetResult();
-                //GetTokenResourceOwner().GetAwaiter().GetResult();
+                Console.WriteLine("Press Enter to Continue...");
+                Console.ReadLine();
+                //CallApiClientCredentials().GetAwaiter().GetResult();
+                GetTokenResourceOwner().GetAwaiter().GetResult();
             }
             catch (Exception exception)
             {
@@ -60,7 +62,7 @@ namespace ConsoleClient
             else
             {
                 var content = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(JArray.Parse(content));
+                Console.WriteLine(content);
             }
         }
     }

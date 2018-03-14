@@ -43,7 +43,10 @@ namespace IdentityServer
                         builder.UseSqlServer(connectionString, sql => sql.MigrationsAssembly(migrationsAssembly));
                     options.EnableTokenCleanup = true;
                     options.TokenCleanupInterval = 30;
-                });
+                })
+                .AddExtensionGrantValidator<DelegationGrantValidator>()
+                .AddProfileService<ProfileService>()
+                .AddResourceOwnerValidator<ResourceOwnerValidator>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -66,7 +69,9 @@ namespace IdentityServer
 
                 var context = serviceScope.ServiceProvider.GetRequiredService<ConfigurationDbContext>();
 
+                //context.Database.EnsureDeleted();
                 context.Database.Migrate();
+                
 
                 // Seed Clients
                 if (!context.Clients.Any())

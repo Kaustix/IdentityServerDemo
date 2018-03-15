@@ -31,7 +31,6 @@ namespace IdentityServer
             services
                 .AddIdentityServer()
                 .AddDeveloperSigningCredential()
-                .AddTestUsers(Config.GetUsers().ToList())
                 .AddConfigurationStore(options =>
                 {
                     options.ConfigureDbContext = builder =>

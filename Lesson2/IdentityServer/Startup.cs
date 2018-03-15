@@ -22,6 +22,9 @@ namespace IdentityServer
 
         public void ConfigureServices(IServiceCollection services)
         {
+            //const string connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;database=IdentityServer;trusted_connection=yes;";
+            //var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
+
             services.AddMvc();
 
             services
@@ -31,11 +34,6 @@ namespace IdentityServer
                 .AddInMemoryIdentityResources(Config.GetIdentityResources())
                 .AddInMemoryClients(Config.GetClients())
                 .AddInMemoryApiResources(Config.GetApiResources());
-
-
-            //const string connectionString = @"Data Source=(LocalDb)\MSSQLLocalDB;database=IdentityServer;trusted_connection=yes;";
-            //var migrationsAssembly = typeof(Startup).GetTypeInfo().Assembly.GetName().Name;
-
 
             //.AddConfigurationStore(options =>
             //{
@@ -55,7 +53,7 @@ namespace IdentityServer
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
-            InitializeDatabase(app);
+            //InitializeDatabase(app);
 
             app.UseIdentityServer();
 
